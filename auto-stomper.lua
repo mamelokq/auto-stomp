@@ -1,4 +1,4 @@
--- loadstring(game:HttpGet("", true))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/mamelokq/auto-stomp/refs/heads/main/auto-stomper.lua", true))()
 
 task.spawn(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/mamelokq/auto-stomp/refs/heads/main/r-spammer", true))()
