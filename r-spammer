@@ -1,0 +1,30 @@
+local Players = game:GetService("Players")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local player = Players.LocalPlayer
+
+local running = false
+
+local function startPressingR()
+	if running then return end
+	running = true
+
+	while running do
+		-- Simulate R key press
+		VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.R, false, game)
+		task.wait(0.05)
+		VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.R, false, game)
+		task.wait(1)
+	end
+end
+
+-- Reset and start the loop whenever the character loads
+player.CharacterAdded:Connect(function()
+	running = false
+	task.wait(2) -- Wait for the character to fully load
+	startPressingR()
+end)
+
+-- Optionally: start immediately if character already exists
+if player.Character then
+	startPressingR()
+end
